@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 955e64a384152df4889dde14e07e5930
+guid: 80ffd59b518494a4eb2d90846ba2009e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: obstacle_fly_0
+      name: tiles2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb18e75767555fc40969a944d250cbd9
-      internalID: 1185917741
+      spriteID: 06ef0520e732c8c44b80afd50bb2693f
+      internalID: -1623951942
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: obstacle_fly_1
+      name: tiles2_1
       rect:
         serializedVersion: 2
         x: 32
@@ -145,50 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1eb46c676c88f542938aad307d21e54
-      internalID: 394563828
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: obstacle_fly_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 31f5cbf49c2c1334496f4e8edf4de0bb
-      internalID: 972590967
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: obstacle_fly_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b6ad92dc76f8ba5408533e4437d2e5a2
-      internalID: -1411835589
+      spriteID: cd701c73265242842a1458ee47cc13b4
+      internalID: -246225360
       vertices: []
       indices: 
       edges: []
@@ -204,10 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      obstacle_fly_0: 1185917741
-      obstacle_fly_1: 394563828
-      obstacle_fly_2: 972590967
-      obstacle_fly_3: -1411835589
+      tiles2_0: -1623951942
+      tiles2_1: -246225360
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
