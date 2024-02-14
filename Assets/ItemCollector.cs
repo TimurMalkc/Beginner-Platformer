@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ItemCollector : MonoBehaviour
 {
     [SerializeField] private Text coinsText;
+    [SerializeField] private AudioSource collectionSoundEffect;
     private int coins = 0;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -13,6 +14,7 @@ public class ItemCollector : MonoBehaviour
         if (collision.gameObject.CompareTag("Coin"))
         {
             Destroy(collision.gameObject);
+            collectionSoundEffect.Play();
             coins++;
             coinsText.text = "Coins: " + coins;
         }
