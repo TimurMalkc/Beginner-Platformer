@@ -7,11 +7,13 @@ public class FinishScript : MonoBehaviour
 {
 
     private bool levelCompleted = false;
+    [SerializeField] private AudioSource finishSound;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.name == "Player" && !levelCompleted)
         {
             levelCompleted = true;
+            finishSound.Play();
             Invoke("CompleteLevel", 2f);
         }
     }

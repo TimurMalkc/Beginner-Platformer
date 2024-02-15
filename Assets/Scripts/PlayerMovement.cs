@@ -10,8 +10,8 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer sprite;
     private BoxCollider2D coll;
     private float dirX = 0f;
-    [SerializeField] private float moveSpeed = 7f;
-    [SerializeField] private float jumpForce = 7f;
+    [SerializeField] private float moveSpeed = 9f;
+    [SerializeField] private float jumpForce = 14f;
     [SerializeField] private LayerMask jumpableGround;
     [SerializeField] private AudioSource jumpSoundEffect;
 

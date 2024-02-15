@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a725591ad9fe69445a11dc741ff21b2a
+guid: 6f41d4dd277735f40ae2d7fdcdc75f6a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tiles1_0
+      name: acid_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ded4fd0e1c01e945ae16dadb3785105
-      internalID: 44705929
+      spriteID: 058fe7b8f8db62f4f897392c9c031f00
+      internalID: -944061019
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tiles1_1
+      name: acid_1
       rect:
         serializedVersion: 2
         x: 32
@@ -145,8 +145,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 798e844fed1b29f4fb3e0675f7cc8f25
-      internalID: -736949879
+      spriteID: 57081a19b05a4f046bc0071faf3a2c11
+      internalID: -1374619058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: acid_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5522a626778d11d4099a4ad8fc76917d
+      internalID: -43090135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: acid_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2736a854ee737f44eac2ab0577fe345d
+      internalID: 179860293
       vertices: []
       indices: 
       edges: []
@@ -162,8 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      tiles1_0: 44705929
-      tiles1_1: -736949879
+      acid_0: -944061019
+      acid_1: -1374619058
+      acid_2: -43090135
+      acid_3: 179860293
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
