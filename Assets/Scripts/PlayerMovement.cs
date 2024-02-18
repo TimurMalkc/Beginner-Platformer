@@ -10,12 +10,19 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer sprite;
     private BoxCollider2D coll;
     private float dirX = 0f;
+    
     [SerializeField] private float moveSpeed = 9f;
     [SerializeField] private float jumpForce = 14f;
     [SerializeField] private LayerMask jumpableGround;
     [SerializeField] private AudioSource jumpSoundEffect;
 
-    private enum MovementState { idle, running, jumping, falling }
+    private bool canDash = true;
+    private bool isDashing;
+    private float dashingPower = 24f;
+    private float dashingTime = 0.2f;
+    private float dashingCooldown = 1f;
+
+    private enum MovementState { idle, running, jumping, falling, dashing }
     
 
     private void Start()
@@ -31,6 +38,11 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
 
+        if (isDashing)
+        {
+            return;
+        }
+
         dirX = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
 
@@ -38,6 +50,11 @@ public class PlayerMovement : MonoBehaviour
         {
             jumpSoundEffect.Play();
             rb.velocity = new Vector2(rb.velocity.x ,jumpForce);
+        }
+        
+        if(Input.GetButtonDown("Fire3") && canDash)
+        {
+            StartCoroutine(Dash());
         }
 
         updateAnimationState();
@@ -50,12 +67,26 @@ public class PlayerMovement : MonoBehaviour
 
         if (dirX > 0f)
         {
-            state = MovementState.running;
+            if (isDashing)
+            {
+                state = MovementState.dashing;
+            }
+            else
+            {
+                state = MovementState.running;
+            }
             sprite.flipX = false;
         }
         else if (dirX < 0f)
         {
-            state = MovementState.running;
+            if (isDashing)
+            {
+                state = MovementState.dashing;
+            }
+            else
+            {
+                state = MovementState.running;
+            }
             sprite.flipX = true;
         }
         else
@@ -78,6 +109,21 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded()
     {
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
+    }
+
+    private IEnumerator Dash()
+    {
+        canDash = false;
+        isDashing = true;
+        float originalGravity = rb.gravityScale;
+        rb.gravityScale = 0f;
+        rb.velocity = new Vector2(dirX * dashingPower, 0f);
+        yield return new WaitForSeconds(dashingTime);
+        rb.gravityScale = originalGravity;
+        isDashing = false;
+        yield return new WaitForSeconds(dashingCooldown);
+        canDash = true;
+
     }
 
 }
