@@ -22,6 +22,11 @@ public class PlayerMovement : MonoBehaviour
     private float dashingTime = 0.2f;
     private float dashingCooldown = 1f;
 
+    private float coyoteTime = 0.2f;
+    private float coyoteTimeCounter;
+    private float jumpBufferTime = 0.2f;
+    private float jumpBufferCounter;
+
     private enum MovementState { idle, running, jumping, falling, dashing }
     
 
@@ -43,19 +48,50 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
+
+        if (isGrounded())
+        {
+            coyoteTimeCounter = coyoteTime;
+        }
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
+        }
+
+
         dirX = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
 
-        if (Input.GetButtonDown("Jump") && isGrounded())
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            jumpBufferCounter = jumpBufferTime;
+        }
+        else
+        {
+            jumpBufferCounter -= Time.deltaTime;
+        }
+
+        if (jumpBufferCounter > 0f && coyoteTimeCounter > 0f)
         {
             jumpSoundEffect.Play();
             rb.velocity = new Vector2(rb.velocity.x ,jumpForce);
+            jumpBufferCounter = 0f;
         }
         
+
+        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+            coyoteTimeCounter = 0f;
+        }
+
+
         if(Input.GetButtonDown("Fire3") && canDash)
         {
             StartCoroutine(Dash());
         }
+
 
         updateAnimationState();
     }
